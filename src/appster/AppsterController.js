@@ -39,6 +39,18 @@ export default class AppsterController {
         // AND THE MODAL BUTTONS
         this.registerEventHandler(AppsterGUIId.DIALOG_YES_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CONFIRM_DELETE_WORK]);
         this.registerEventHandler(AppsterGUIId.DIALOG_NO_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_DELETE_WORK]);
+
+        //AND THE TEXT MODAL BUTTONS ************************
+        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_ENTER_MODAL]);
+        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL])
+
+        //AND THE TEXT short input MODAL BUTTONS 
+        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_TO_SHORT, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_ENTER_MODAL_TO_SHORT]);
+        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_TO_SHORT, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL_TO_SHORT])
+
+        //AND THE TEXT invalid input MODAL BUTTONS 
+        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_INVALID, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_ENTER_MODAL_INVALID]);
+        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_INVALID, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL_INVALID])
     }
 
     /**
@@ -96,19 +108,11 @@ export default class AppsterController {
         let modal_TextInput = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
         AppsterView.prototype.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
         
+        
 
-
-
-        // var workName = prompt("Name of Logo")
-        // let nullCheck = this.model.getRecentWork(workName)
-
-        // while(nullCheck != null || workName.length <= 0){
-        //     workName = prompt("Invalid Name! \nPlease try another")
-        //     nullCheck = this.model.getRecentWork(workName)
-        // }
 
         // MAKE A BRAND NEW LIST
-        this.model.goList(workName);
+        //this.model.goList(workName);
     }
 
     /**
@@ -174,4 +178,71 @@ export default class AppsterController {
         window.todo.model.view.showDialog();
     }
 
+    /**
+     * This function responds when the user presses the continue
+     * on the AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON 
+     * modal
+     */
+    processEnterModal = (event) =>{
+        console.log("Process Enter Modal")
+
+        this.model.goList(document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD).value)
+    }
+
+    /**
+     * This function responds when the user presses the continue
+     * on the AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON 
+     * modal
+     */
+    processEnterModal_TO_SHORT = (event) =>{
+        console.log("Process Enter Modal_TO_SHORT")
+
+        this.model.goList(document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_TO_SHORT).value)
+    }
+
+
+    /**
+     * This function responds when the user presses the continue
+     * on the AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON 
+     * modal
+     */
+    processEnterModal_INVALID = (event) =>{
+        console.log("Process Enter Modal_TO_SHORT")
+
+        this.model.goList(document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_INVALID).value)
+    }
+
+
+    /**
+     * This function responds when the user presses cancel on 
+     * the TextModal, and hides the modal
+     */
+    processCancelTextModal = (event) =>{
+        console.log("Process Close Text Dialog")
+
+       AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
+        
+    }
+
+    /**
+     * This function responds when the user presses cancel on 
+     * the TextModal, and hides the modal
+     */
+    processCancelTextModal_TO_SHORT = (event) =>{
+        console.log("Process Close Text Dialog")
+
+       AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
+        
+    }
+
+    /**
+     * This function responds when the user presses cancel on 
+     * the TextModal, and hides the modal
+     */
+    processCancelTextModal_INVALID = (event) =>{
+        console.log("Process Close Text Dialog")
+
+       AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
+        
+    }
 }

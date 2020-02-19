@@ -25,7 +25,14 @@ export const AppsterCallback = {
     APPSTER_PROCESS_GO_HOME: "processGoHome",
     APPSTER_PROCESS_DELETE_WORK: "processDeleteWork",
     APPSTER_PROCESS_CONFIRM_DELETE_WORK: "processConfirmDeleteWork",
-    APPSTER_PROCESS_CANCEL_DELETE_WORK: "processCancelDeleteWork"
+    APPSTER_PROCESS_CANCEL_DELETE_WORK: "processCancelDeleteWork",
+    APPSTER_PROCESS_ENTER_MODAL: "processEnterModal", 
+    APPSTER_PROCESS_CANCEL_TEXT_MODAL: "processCancelTextModal",
+    APPSTER_PROCESS_ENTER_MODAL_TO_SHORT: "processEnterModal_TO_SHORT",
+    APPSTER_PROCESS_ENTER_MODAL_INVALID: "processEnterModal_INVALID",
+    APPSTER_PROCESS_CANCEL_TEXT_MODAL_TO_SHORT: "processCancelTextModal_TO_SHORT",
+    APPSTER_PROCESS_CANCEL_TEXT_MODAL_INVALID: "processCancelTextModal_INVALID"
+
 };
 
 /**
@@ -45,6 +52,8 @@ export const AppsterGUIClass = {
     APPSTER_MODAL_TEXTFIELD: "appster_modal_textfield",
     APPSTER_MODAL_BUTTON: "appster_modal_button",
     APPSTER_MODAL_FOOTER: "appster_modal_footer",
+
+    
 
     IS_VISIBLE: "is_visible",
 
@@ -101,7 +110,37 @@ export const AppsterGUIId = {
     APPSTER_TEXT_INPUT_MODAL_TEXTFIELD: "appster_text_input_modal_textfield",
     APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON: 'appster_text_input_modal_enter_button',
     APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON: 'appster_text_input_modal_cancel_button',
-    APPSTER_TEXT_INPUT_MODAL_FOOTER: 'appster_text_input_modal_footer'
+    APPSTER_TEXT_INPUT_MODAL_FOOTER: 'appster_text_input_modal_footer',
+
+
+    //IDs for toShortModal
+    APPSTER_CONFIRM_MODAL_TO_SHORT: 'appster_confirm_modal_to_short',
+    APPSTER_CONFIRM_MODAL_FRAME_TO_SHORT: 'appster_confirm_modal_frame_to_short',
+    APPSTER_CONFIRM_MODAL_HEADER_TO_SHORT: 'appster_confirm_modal_header_to_short',
+    APPSTER_CONFIRM_MODAL_SECTION_TO_SHORT: 'appster_confirm_modal_section_to_short',
+    APPSTER_CONFIRM_MODAL_OK_BUTTON_TO_SHORT: 'appster_confirm_modal_ok_button_to_short',
+    APPSTER_CONFIRM_MODAL_FOOTER_TO_SHORT: 'appster_confirm_frame_to_short',
+
+    //IDs for toShortModal
+    APPSTER_TEXT_INPUT_MODAL_TO_SHORT: 'appster_text_input_modal_to_short',
+    APPSTER_TEXT_INPUT_MODAL_FRAME_TO_SHORT: 'appster_text_input_modal_frame_to_short',
+    APPSTER_TEXT_INPUT_MODAL_HEADER_TO_SHORT: 'appster_text_input_modal_header_to_short',
+    APPSTER_TEXT_INPUT_MODAL_SECTION_TO_SHORT: 'appster_text_input_modal_section_to_short',
+    APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_TO_SHORT: "appster_text_input_modal_textfield_to_short",
+    APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_TO_SHORT: 'appster_text_input_modal_enter_button_to_short',
+    APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_TO_SHORT: 'appster_text_input_modal_cancel_button_to_short',
+    APPSTER_TEXT_INPUT_MODAL_FOOTER_TO_SHORT: 'appster_text_input_modal_footer_to_short',
+
+    //IDS FOR TEXT MODAL-IVALID
+    APPSTER_TEXT_INPUT_MODAL_INVALID: 'appster_text_input_modal_invalid',
+    APPSTER_TEXT_INPUT_MODAL_FRAME_INVALID: 'appster_text_input_modal_frame_invalid',
+    APPSTER_TEXT_INPUT_MODAL_HEADER_INVALID: 'appster_text_input_modal_header_invalid',
+    APPSTER_TEXT_INPUT_MODAL_SECTION_INVALID: 'appster_text_input_modal_section_invalid',
+    APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_INVALID: "appster_text_input_modal_textfield_invalid",
+    APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_INVALID: 'appster_text_input_modal_enter_button_invalid',
+    APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_INVALID: 'appster_text_input_modal_cancel_button_invalid',
+    APPSTER_TEXT_INPUT_MODAL_FOOTER_INVALID: 'appster_text_input_modal_footer_invalid'
+
 };
 
 /**
@@ -167,5 +206,6 @@ export const AppsterText = {
     APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_TEXT: "appster_text_input_modal_cancel_button_text",
     APPSTER_TEXT_INPUT_MODAL_FOOTER_TEXT: "appster_text_input_modal_footer_text",
 
+    APPSTER_TEXT_INPUT_MODAL_PROMPT_TEXT_TO_SHORT_SMOL: "appster_text_input_modal_prompt_text_TO_SHORT_smol",
     APPSTER_MODAL_ANIMATION_TEXT: "appster_slideInOutLeft"
 }

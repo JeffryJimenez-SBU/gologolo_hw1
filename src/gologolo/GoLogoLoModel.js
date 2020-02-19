@@ -1,5 +1,8 @@
 import AppsterModel from '../appster/AppsterModel.js'
+import {AppsterGUIId, AppsterHTML} from '../appster/AppsterConstants.js'
 import GoLogoLoLogo from './GoLogoLoLogo.js'
+import AppsterController from '../appster/AppsterController.js'
+import AppsterView from '../appster/AppsterView.js'
 
 export default class GoLogoLoModel extends AppsterModel {
     constructor() {
@@ -48,15 +51,44 @@ export default class GoLogoLoModel extends AppsterModel {
  //       this.view.
     }
 
-    goList(workName){
+    goList(title){
         console.log("In goList")
+        let hold = true
 
-        //create new Appwork object && prepend it to the list
-        let logo_obj = new GoLogoLoLogo(workName)
-        this.prependWork(logo_obj)
-
-        //go to the edit screen
-        this.editWork(workName)
+        
+        let nullCheck = this.getRecentWork(title)
+        document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD).value = ""
+        document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_TO_SHORT).value = ""
+        document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_INVALID).value = ""
+        
+        
+            
+        if(title.length > 0 && nullCheck == null){
+            hold = false
+        }else{
+            if(title.length <= 0){
+                AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
+                AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
+                AppsterView.prototype.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
+            }else{
+                AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
+                AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
+                AppsterView.prototype.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
+                
+            }
+        }
+        
+        if(!hold){
+            this.view.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
+            this.view.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
+            this.view.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
+            //create new Appwork object && prepend it to the list
+            let logo_obj = new GoLogoLoLogo(title)
+            this.prependWork(logo_obj)
+             //go to the edit screen
+            this.editWork(title)
+        }
+        
 
     }
 }
