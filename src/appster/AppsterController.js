@@ -37,8 +37,10 @@ export default class AppsterController {
         this.registerEventHandler(AppsterGUIId.APPSTER_EDIT_TRASH, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_DELETE_WORK]);
 
         // AND THE MODAL BUTTONS
-        this.registerEventHandler(AppsterGUIId.DIALOG_YES_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CONFIRM_DELETE_WORK]);
-        this.registerEventHandler(AppsterGUIId.DIALOG_NO_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_DELETE_WORK]);
+        //used to be .DIALOG_YES_BUTTON
+        this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_YES_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CONFIRM_DELETE_WORK]);
+        //used to be .DiALOG NO BUTTON
+        this.registerEventHandler(AppsterGUIId.APPSTER_YES_NO_MODAL_NO_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_DELETE_WORK]);
 
         //AND THE TEXT MODAL BUTTONS ************************
         this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_ENTER_MODAL]);
@@ -106,10 +108,9 @@ export default class AppsterController {
 
         //get the Text Modal
         let modal_TextInput = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
-        AppsterView.prototype.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
+        this.model.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
         
         
-
 
         // MAKE A BRAND NEW LIST
         //this.model.goList(workName);
@@ -139,8 +140,10 @@ export default class AppsterController {
      * button in the popup dialog after having requested to delete
      * the loaded work.
      */
-    processCancelDeleteWork() {
+    processCancelDeleteWork = (event) => {
         // JUST HIDE THE DIALOG
+        console.log("Process Cancel Delete Work")
+        this.model.hideDialog(AppsterGUIId.APPSTER_YES_NO_MODAL)
 
     }
 
@@ -160,11 +163,12 @@ export default class AppsterController {
      * button in the popup dialog after having requested to delete
      * the loaded work.
      */
-    processConfirmDeleteWork() {
+    processConfirmDeleteWork = (event) => {
         // DELETE THE WORK
         this.model.removeWork(this.model.getWorkToEdit());
 
         // GO BACK TO THE HOME SCREEN
+        this.model.hideDialog(AppsterGUIId.APPSTER_YES_NO_MODAL)
         this.model.goHome();
     }
 
@@ -173,9 +177,12 @@ export default class AppsterController {
      * button, i.e. the delete button, in order to delete the
      * list being edited.
      */
-    processDeleteWork() {
+    processDeleteWork = (event) => {
         // VERIFY VIA A DIALOG BOX
-        window.todo.model.view.showDialog();
+        console.log("Process  Delete Work")
+
+        this.model.showDialog(AppsterGUIId.APPSTER_YES_NO_MODAL)
+        //window.todo.model.view.showDialog();
     }
 
     /**
@@ -220,7 +227,7 @@ export default class AppsterController {
     processCancelTextModal = (event) =>{
         console.log("Process Close Text Dialog")
 
-       AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
+       this.model.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
         
     }
 
@@ -231,7 +238,7 @@ export default class AppsterController {
     processCancelTextModal_TO_SHORT = (event) =>{
         console.log("Process Close Text Dialog")
 
-       AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
+       this.model.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
         
     }
 
@@ -242,7 +249,7 @@ export default class AppsterController {
     processCancelTextModal_INVALID = (event) =>{
         console.log("Process Close Text Dialog")
 
-       AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
+       this.model.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
         
     }
 }

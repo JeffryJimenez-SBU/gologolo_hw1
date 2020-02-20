@@ -67,13 +67,13 @@ export default class GoLogoLoModel extends AppsterModel {
             hold = false
         }else{
             if(title.length <= 0){
-                AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
-                AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
-                AppsterView.prototype.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
+                this.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
+                this.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
+                this.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
             }else{
-                AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
-                AppsterView.prototype.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
-                AppsterView.prototype.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
+                this.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL)
+                this.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TO_SHORT)
+                this.showDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
                 
             }
         }
@@ -90,5 +90,17 @@ export default class GoLogoLoModel extends AppsterModel {
         }
         
 
+    }
+
+    getWorkToEdit(){
+        return this.currentWork
+    }
+
+    hideDialog(id){
+        this.view.hideDialog(id)
+    }
+
+    showDialog(id){
+        this.view.showDialog(id)
     }
 }
