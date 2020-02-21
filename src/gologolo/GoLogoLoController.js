@@ -9,4 +9,16 @@ export default class GoLogoLoController
     processEditText() {
         this.model.updateText();
     }
+
+    getGoloGoloCurentWork(){
+        return this.model.getCurrentWork()
+    }
+
+    
+    // registerEventHandler(id, eventName){
+                                    
+    // }
+
+
+
 }

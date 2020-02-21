@@ -48,7 +48,7 @@ export default class GoLogoLoModel extends AppsterModel {
     }
 
     updateText() {
- //       this.view.
+        this.view.updateText()
     }
 
     goList(title){
@@ -103,4 +103,17 @@ export default class GoLogoLoModel extends AppsterModel {
     showDialog(id){
         this.view.showDialog(id)
     }
+
+    showEditTextDialog(id){
+        let text = this.view.getText()
+        document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_NEW_NAME).value = text
+        this.view.showDialog(id)
+
+    }
+
+    gologoloLogoEventHandler(){
+        this.view.setupHandlers()
+    }
+
+
 }

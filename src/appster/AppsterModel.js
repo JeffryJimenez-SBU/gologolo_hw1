@@ -126,4 +126,8 @@ export default class AppsterModel {
         this.prependList(this.listToEdit);
         this.view.loadListData(this.listToEdit);
     }
+
+    getCurrentWork(){
+        return this.currentWork
+    }
 }

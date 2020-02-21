@@ -53,6 +53,10 @@ export default class AppsterController {
         //AND THE TEXT invalid input MODAL BUTTONS 
         this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_INVALID, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_ENTER_MODAL_INVALID]);
         this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_INVALID, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL_INVALID])
+
+        //test
+        this.model.gologoloLogoEventHandler();
+        this.registerEventHandler(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_NEW_NAME, AppsterHTML.CLICK, this[AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL_NEW_NAME_CANCEL])
     }
 
     /**
@@ -251,5 +255,25 @@ export default class AppsterController {
 
        this.model.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_INVALID)
         
+    }
+
+    processChangeName = (event) => {
+
+        this.model.showEditTextDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
+
+    }
+
+    processCancelChangeText = (event) => {
+        this.model.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
+    }
+
+    processContinueChangeText = (event) => {
+        this.processEditText()
+    }
+
+    outsideRegisterAppsterHandler(id, eventName, callback){
+
+        this.registerEventHandler(id, eventName, this[callback] )
+
     }
 }

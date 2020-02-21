@@ -21,6 +21,7 @@
         {"appster_text_input_modal_footer_text": "Creating New Logo"},
 
         {"appster_text_input_modal_prompt_text_TO_SHORT_smol": "Illegal name, name must have at least one charcter: "},
+        {"appster_text_input_modal_prompt_text_NEW_NAME": "Edit Logo Name"},
 
         {"gologolo_edit_text_text": "Edit Text &#x270e;"},
         {"gologolo_font_size_text": "Font Size: "},

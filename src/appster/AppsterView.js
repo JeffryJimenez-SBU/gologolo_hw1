@@ -86,6 +86,7 @@ export default class AppsterView {
             let appsterTextInputModal = this.buildAppsterTextInputModal();
             let appsterTextInputModal_TO_SHORT_SMOL = this.buildAppsterTextInputModal_TO_SHORT()
             let appsterTextInputModel_Illegal = this.buildAppsterTextInputModal_INVALID_INPUT()
+            let appsterTextInputModal_new_name = this.buildAppsterTextInputModal_EDIT_Name()
             appsterRootDiv.appendChild(appsterHomeScreenDiv);
             appsterRootDiv.appendChild(appsterEditScreenDiv);
             appsterRootDiv.appendChild(appsterYesNoModal);
@@ -93,6 +94,7 @@ export default class AppsterView {
             appsterRootDiv.appendChild(appsterTextInputModal);
             appsterRootDiv.appendChild(appsterTextInputModal_TO_SHORT_SMOL)
             appsterRootDiv.appendChild(appsterTextInputModel_Illegal)
+            appsterRootDiv.appendChild(appsterTextInputModal_new_name)
 
 
             // HIDE THE THINGS THAT ARE NOT VISIBLE
@@ -654,6 +656,63 @@ buildAppsterTextInputModal_INVALID_INPUT() {
     textModal.appendChild(textFrame);
     return textModal;
 }
+
+
+buildAppsterTextInputModal_EDIT_Name() {
+    let textModal = this.buildElement(  AppsterHTML.DIV, 
+                                        AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME,
+                                        [AppsterGUIClass.APPSTER_MODAL],
+                                        [],
+                                        null,
+                                        AppsterGUIClass.MODAL_ANIMATION_LEFT);
+    let textFrame = this.buildElement( AppsterHTML.DIV, 
+                                        AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_FRAME_NEW_NAME,
+                                        [AppsterGUIClass.APPSTER_MODAL_FRAME]);
+    let header = this.buildElement( AppsterHTML.HEADER, 
+                                    AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_HEADER_NEW_NAME,
+                                    [AppsterGUIClass.APPSTER_MODAL_HEADER]);
+    let section = this.buildElement(    AppsterHTML.SECTION, 
+                                        AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_SECTION_NEW_NAME,
+                                        [AppsterGUIClass.APPSTER_MODAL_SECTION]);
+    let p = this.buildElement(AppsterHTML.P);
+    let strong = this.buildElement(    AppsterHTML.STRONG, 
+                                            "",
+                                            [],
+                                            [],
+                                            AppsterText.APPSTER_TEXT_INPUT_MODAL_PROMPT_TEXT_NEW_NAME);
+    let textFieldAttributes = [];
+    textFieldAttributes[AppsterHTML.TYPE] = AppsterHTML.TEXT;
+    let textField = this.buildElement(  AppsterHTML.INPUT,
+                                        AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_NEW_NAME,
+                                        [AppsterGUIClass.APPSTER_MODAL_TEXTFIELD],
+                                        textFieldAttributes);
+    let enterButton = this.buildElement(   AppsterHTML.BUTTON, 
+                                        AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_NEW_NAME,
+                                        [AppsterGUIClass.APPSTER_MODAL_BUTTON],
+                                        [],
+                                        AppsterText.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_TEXT);
+    let cancelButton = this.buildElement(AppsterHTML.BUTTON, 
+                                        AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_NEW_NAME,
+                                        [AppsterGUIClass.APPSTER_MODAL_BUTTON],
+                                        [],
+                                        AppsterText.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_TEXT);
+    let footer = this.buildElement(     AppsterHTML.FOOTER, 
+                                        "", 
+                                        [AppsterGUIClass.APPSTER_MODAL_FOOTER],
+                                        [],
+                                        AppsterText.APPSTER_TEXT_INPUT_MODAL_FOOTER_TEXT);
+    p.appendChild(strong);
+    section.appendChild(p);
+    textFrame.appendChild(header);
+    textFrame.appendChild(section);
+    section.appendChild(textField);
+    section.appendChild(enterButton);
+    section.appendChild(cancelButton);
+    textFrame.appendChild(footer);
+    textModal.appendChild(textFrame);
+    return textModal;
+}
+
 
 
 

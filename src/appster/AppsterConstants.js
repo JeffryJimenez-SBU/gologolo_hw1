@@ -31,7 +31,11 @@ export const AppsterCallback = {
     APPSTER_PROCESS_ENTER_MODAL_TO_SHORT: "processEnterModal_TO_SHORT",
     APPSTER_PROCESS_ENTER_MODAL_INVALID: "processEnterModal_INVALID",
     APPSTER_PROCESS_CANCEL_TEXT_MODAL_TO_SHORT: "processCancelTextModal_TO_SHORT",
-    APPSTER_PROCESS_CANCEL_TEXT_MODAL_INVALID: "processCancelTextModal_INVALID"
+    APPSTER_PROCESS_CANCEL_TEXT_MODAL_INVALID: "processCancelTextModal_INVALID",
+    APPSTER_PROCESS_CANCEL_TEXT_MODAL_NEW_NAME: "processChangeName",
+    APPSTER_PROCESS_CANCEL_TEXT_MODAL_NEW_NAME_CANCEL: "processCancelChangeText",
+    APPSTER_PROCESS_ENTER_TEXT_MODAL_NEW_NAME_CONTINUE: "processContinueChangeText"
+
 
 };
 
@@ -139,7 +143,17 @@ export const AppsterGUIId = {
     APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_INVALID: "appster_text_input_modal_textfield_invalid",
     APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_INVALID: 'appster_text_input_modal_enter_button_invalid',
     APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_INVALID: 'appster_text_input_modal_cancel_button_invalid',
-    APPSTER_TEXT_INPUT_MODAL_FOOTER_INVALID: 'appster_text_input_modal_footer_invalid'
+    APPSTER_TEXT_INPUT_MODAL_FOOTER_INVALID: 'appster_text_input_modal_footer_invalid',
+
+    //ID's for new name
+    APPSTER_TEXT_INPUT_MODAL_NEW_NAME: 'appster_text_input_modal_new_name',
+    APPSTER_TEXT_INPUT_MODAL_FRAME_NEW_NAME: 'appster_text_input_modal_frame_new_name',
+    APPSTER_TEXT_INPUT_MODAL_HEADER_NEW_NAME: 'appster_text_input_modal_header_new_name',
+    APPSTER_TEXT_INPUT_MODAL_SECTION_NEW_NAME: 'appster_text_input_modal_section_new_name',
+    APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_NEW_NAME: "appster_text_input_modal_textfield_new_name",
+    APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_NEW_NAME: 'appster_text_input_modal_enter_button_new_name',
+    APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_NEW_NAME: 'appster_text_input_modal_cancel_button_new_name',
+    APPSTER_TEXT_INPUT_MODAL_FOOTER_NEW_NAME: 'appster_text_input_modal_footer_new_name'
 
 };
 
@@ -207,5 +221,6 @@ export const AppsterText = {
     APPSTER_TEXT_INPUT_MODAL_FOOTER_TEXT: "appster_text_input_modal_footer_text",
 
     APPSTER_TEXT_INPUT_MODAL_PROMPT_TEXT_TO_SHORT_SMOL: "appster_text_input_modal_prompt_text_TO_SHORT_smol",
+    APPSTER_TEXT_INPUT_MODAL_PROMPT_TEXT_NEW_NAME: "appster_text_input_modal_prompt_text_NEW_NAME",
     APPSTER_MODAL_ANIMATION_TEXT: "appster_slideInOutLeft"
 }

@@ -1,5 +1,5 @@
 import {GoLogoLoGUIClass, GoLogoLoGUIId, GoLogoLoText} from './GoLogoLoConstants.js'
-import {AppsterHTML, AppsterSymbols} from '../appster/AppsterConstants.js'
+import {AppsterHTML, AppsterSymbols, AppsterCallback, AppsterGUIId} from '../appster/AppsterConstants.js'
 import AppsterView from '../appster/AppsterView.js'
 
 export default class GoLogoLoView extends AppsterView {
@@ -16,7 +16,7 @@ export default class GoLogoLoView extends AppsterView {
         // FIRST MAKE THE TOOLBAR
         let toolbar = this.buildElement(AppsterHTML.DIV, GoLogoLoGUIId.GOLOGOLO_TOOLBAR);
         let editTextButton = this.buildElement(AppsterHTML.BUTTON, GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON, [], [], GoLogoLoText.GOLOGOLO_EDIT_TEXT_TEXT);
-        editTextButton.innerHTML = AppsterSymbols.EDIT;
+        //editTextButton.innerHTML = AppsterSymbols.EDIT;
         let fontSizeSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER, [], rangeAttributes);
         let textColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER, [], colorPickerAttributes);
         let backgroundColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER, [], colorPickerAttributes);
@@ -101,5 +101,26 @@ export default class GoLogoLoView extends AppsterView {
     appendLetter(listItemId, letterToAppend) {
         let textList = document.getElementById(listItemId);
         textList.innerHTML += textList.innerHTML + letterToAppend;
+    }
+
+    //  setupHandlers(){
+    //    
+    // }
+
+    setupHandlers() {
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON, AppsterHTML.CLICK, AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL_NEW_NAME)
+        this.controller.outsideRegisterAppsterHandler( AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_NEW_NAME, AppsterHTML.CLICK, AppsterCallback.APPSTER_PROCESS_ENTER_TEXT_MODAL_NEW_NAME_CONTINUE )
+    }
+
+    updateText(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setText(document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_NEW_NAME).value) 
+        this.loadWork(currentWork)
+        //document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT).innerText = document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_NEW_NAME).value
+        this.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
+    }
+
+    getText(){
+        return document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT).innerText
     }
 }
