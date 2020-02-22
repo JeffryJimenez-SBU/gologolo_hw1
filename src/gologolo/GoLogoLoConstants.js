@@ -39,4 +39,9 @@ export const GoLogoLoText = {
     GOLOGOLO_BORDER_THICKNESS_TEXT: "gologolo_border_thickness_text",
     GOLOGOLO_PADDING_TEXT: "gologolo_padding_text",
     GOLOGOLO_MARGIN_TEXT: "gologolo_margin_text"
+};
+
+export const GoLogoLoCallback = {
+    GOLOGOLO_PROCESS_FONT_SIZE: "processFontSize"
+
 }

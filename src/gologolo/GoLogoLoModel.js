@@ -51,6 +51,10 @@ export default class GoLogoLoModel extends AppsterModel {
         this.view.updateText()
     }
 
+    updateFontSize(){
+        this.view.updateFontSize()
+    }
+
     goList(title){
         console.log("In goList")
         let hold = true
@@ -115,5 +119,10 @@ export default class GoLogoLoModel extends AppsterModel {
         this.view.setupHandlers()
     }
 
+    getCurrentWork(){
+        return super.getCurrentWork()
+    }
+
+    
 
 }

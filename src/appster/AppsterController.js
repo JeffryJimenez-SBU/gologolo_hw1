@@ -257,23 +257,24 @@ export default class AppsterController {
         
     }
 
-    processChangeName = (event) => {
+    // processChangeName = (event) => {
 
-        this.model.showEditTextDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
+    //     this.model.showEditTextDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
 
-    }
+    // }
 
-    processCancelChangeText = (event) => {
-        this.model.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
-    }
+    // processCancelChangeText = (event) => {
+    //     this.model.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
+    // }
 
-    processContinueChangeText = (event) => {
-        this.processEditText()
-    }
+    // processContinueChangeText = (event) => {
+    //     this.processEditText()
+    // }
 
-    outsideRegisterAppsterHandler(id, eventName, callback){
+    // outsideRegisterAppsterHandler(id, eventName, callback){
 
-        this.registerEventHandler(id, eventName, this[callback] )
+    //     this.registerEventHandler(id, eventName, this[callback] )
 
-    }
+    // }
+
 }

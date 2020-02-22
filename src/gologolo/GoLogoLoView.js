@@ -1,4 +1,4 @@
-import {GoLogoLoGUIClass, GoLogoLoGUIId, GoLogoLoText} from './GoLogoLoConstants.js'
+import {GoLogoLoGUIClass, GoLogoLoGUIId, GoLogoLoText, GoLogoLoCallback} from './GoLogoLoConstants.js'
 import {AppsterHTML, AppsterSymbols, AppsterCallback, AppsterGUIId} from '../appster/AppsterConstants.js'
 import AppsterView from '../appster/AppsterView.js'
 
@@ -87,6 +87,8 @@ export default class GoLogoLoView extends AppsterView {
         textDiv.style.borderColor = work.getBorderColor();
         textDiv.style.borderRadius = work.getBorderRadius();
         textDiv.style.borderThickness = work.getBorderThickness();
+        textDiv.style.fontSize = work.getFontSize() + "px"
+        //console.log("wait")
     }
 
     addListItem(initText) {
@@ -110,6 +112,7 @@ export default class GoLogoLoView extends AppsterView {
     setupHandlers() {
         this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON, AppsterHTML.CLICK, AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL_NEW_NAME)
         this.controller.outsideRegisterAppsterHandler( AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_NEW_NAME, AppsterHTML.CLICK, AppsterCallback.APPSTER_PROCESS_ENTER_TEXT_MODAL_NEW_NAME_CONTINUE )
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_FONT_SIZE)
     }
 
     updateText(){
@@ -120,7 +123,15 @@ export default class GoLogoLoView extends AppsterView {
         this.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
     }
 
+    updateFontSize(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setFontSize(parseInt(document.getElementById( GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER).value))
+        this.loadWorkStyle(currentWork)
+    }
+
     getText(){
         return document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT).innerText
     }
+
+
 }
