@@ -113,6 +113,9 @@ export default class GoLogoLoView extends AppsterView {
         this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON, AppsterHTML.CLICK, AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL_NEW_NAME)
         this.controller.outsideRegisterAppsterHandler( AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_NEW_NAME, AppsterHTML.CLICK, AppsterCallback.APPSTER_PROCESS_ENTER_TEXT_MODAL_NEW_NAME_CONTINUE )
         this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_FONT_SIZE)
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_TEXT_COLOR)
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_BACKGROUND_COLOR)
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_BORDER_COLOR_PICKER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_BORDER_COLOR)
     }
 
     updateText(){
@@ -129,9 +132,29 @@ export default class GoLogoLoView extends AppsterView {
         this.loadWorkStyle(currentWork)
     }
 
+    updateTextColor(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setTextColor(document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER).value)
+        this.loadWorkStyle(currentWork)
+    }
+
+    updateBackgroundColor(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setBackgroundColor(document.getElementById(GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER).value)
+        this.loadWorkStyle(currentWork)
+    }
+
+    updateBorderColor(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setBorderColor(document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_COLOR_PICKER).value)
+        this.loadWorkStyle(currentWork)
+    }
+
     getText(){
         return document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT).innerText
     }
+
+
 
 
 }

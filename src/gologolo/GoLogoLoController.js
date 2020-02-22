@@ -22,6 +22,18 @@ export default class GoLogoLoController
         console.log("processing Font Size")
     }
 
+    processTextColor = (event) => {
+        this.model.updateTextColor()
+    }
+
+    processBackgroundColor = (event) => {
+        this.model.updateBackgroundColor()
+    }
+
+    processBorderColor = (event) => {
+        this.model.updateBorderColor()
+    }
+
 
     processChangeName = (event) => {
 

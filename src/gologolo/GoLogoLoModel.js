@@ -55,6 +55,18 @@ export default class GoLogoLoModel extends AppsterModel {
         this.view.updateFontSize()
     }
 
+    updateTextColor(){
+        this.view.updateTextColor()
+    }
+
+    updateBackgroundColor(){
+        this.view.updateBackgroundColor()
+    }
+
+    updateBorderColor(){
+        this.view.updateBorderColor()
+    }
+
     goList(title){
         console.log("In goList")
         let hold = true

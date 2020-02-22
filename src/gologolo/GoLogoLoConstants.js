@@ -42,6 +42,9 @@ export const GoLogoLoText = {
 };
 
 export const GoLogoLoCallback = {
-    GOLOGOLO_PROCESS_FONT_SIZE: "processFontSize"
+    GOLOGOLO_PROCESS_FONT_SIZE: "processFontSize",
+    GOLOGOLO_PROCESS_TEXT_COLOR: "processTextColor",
+    GOLOGOLO_PROCESS_BACKGROUND_COLOR: "processBackgroundColor",
+    GOLOGOLO_PROCESS_BORDER_COLOR: "processBorderColor"
 
 }
