@@ -45,6 +45,10 @@ export const GoLogoLoCallback = {
     GOLOGOLO_PROCESS_FONT_SIZE: "processFontSize",
     GOLOGOLO_PROCESS_TEXT_COLOR: "processTextColor",
     GOLOGOLO_PROCESS_BACKGROUND_COLOR: "processBackgroundColor",
-    GOLOGOLO_PROCESS_BORDER_COLOR: "processBorderColor"
+    GOLOGOLO_PROCESS_BORDER_COLOR: "processBorderColor",
+    GOLOGOLO_PROCESS_BORDER_RADIUS: "porcessBorderRadius", 
+    GOLOGOLO_PROCESS_BORDER_THICKNESS: "processBorderThickness",
+    GOLOGOLO_PROCESS_PADDING: "processPadding",
+    GOLOGOLO_PROCESS_MARGIN: "processMargin"
 
 }

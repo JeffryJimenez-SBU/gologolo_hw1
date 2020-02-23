@@ -22,7 +22,7 @@ export default class GoLogoLoView extends AppsterView {
         let backgroundColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER, [], colorPickerAttributes);
         let borderColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BORDER_COLOR_PICKER, [], colorPickerAttributes);
         let borderRadiusSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER, [], rangeAttributes);
-        let borderThicknessSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER, [], rangeAttributes);
+        let borderThicknessSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BORDER_THICKNESS_SLIDER, [], rangeAttributes);
         let paddingSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_PADDING_SLIDER, [], rangeAttributes);
         let marginSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_MARGIN_SLIDER, [], rangeAttributes);
         let textDiv = this.buildElement(AppsterHTML.DIV, GoLogoLoGUIId.GOLOGOLO_TEXT);
@@ -71,7 +71,7 @@ export default class GoLogoLoView extends AppsterView {
         borderColorPicker.value = work.getBorderColor();
         let borderRadiusSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER);
         borderRadiusSlider.value = work.getBorderRadius();
-        let borderThicknessSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER);
+        let borderThicknessSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_THICKNESS_SLIDER);
         borderThicknessSlider.value = work.getBorderThickness();
         let paddingSlider = document.getElementById(GoLogoLoGUIId.GOLOGOLO_PADDING_SLIDER);
         paddingSlider.value = work.getPadding();
@@ -84,10 +84,14 @@ export default class GoLogoLoView extends AppsterView {
         let textDiv = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
         textDiv.style.color = work.getTextColor();
         textDiv.style.backgroundColor = work.getBackgroundColor();
-        textDiv.style.borderColor = work.getBorderColor();
-        textDiv.style.borderRadius = work.getBorderRadius();
-        textDiv.style.borderThickness = work.getBorderThickness();
+        //textDiv.style.borderColor = work.getBorderColor();
+        textDiv.style.border = "solid" + work.getBorderColor()  //test
+        textDiv.style.borderRadius = work.getBorderRadius() + "px";
+        //textDiv.style.borderThickness = work.getBorderThickness() + "px";
+        textDiv.style.borderWidth = work.getBorderThickness() + "px";
         textDiv.style.fontSize = work.getFontSize() + "px"
+        textDiv.style.padding = work.getPadding() + "px"
+        textDiv.style.margin = work.getMargin() + "px"
         //console.log("wait")
     }
 
@@ -116,6 +120,10 @@ export default class GoLogoLoView extends AppsterView {
         this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_TEXT_COLOR)
         this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_BACKGROUND_COLOR)
         this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_BORDER_COLOR_PICKER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_BORDER_COLOR)
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_BORDER_RADIUS)
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_BORDER_THICKNESS_SLIDER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_BORDER_THICKNESS)
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_PADDING_SLIDER, AppsterHTML.CLICK, GoLogoLoCallback.GOLOGOLO_PROCESS_PADDING)
+        this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_MARGIN_SLIDER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_MARGIN)
     }
 
     updateText(){
@@ -129,6 +137,30 @@ export default class GoLogoLoView extends AppsterView {
     updateFontSize(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setFontSize(parseInt(document.getElementById( GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER).value))
+        this.loadWorkStyle(currentWork)
+    }
+
+    updateBorderRadius(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setBorderRadius(document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER).value)
+        this.loadWorkStyle(currentWork)
+    }
+
+    updateBorderThickness(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setBorderThickness(document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_THICKNESS_SLIDER).value)
+        this.loadWorkStyle(currentWork)
+    }
+
+    updatePadding(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setPadding(document.getElementById(GoLogoLoGUIId.GOLOGOLO_PADDING_SLIDER).value)
+        this.loadWorkStyle(currentWork)
+    }
+
+    updateMargin(){
+        let currentWork = this.controller.getGoloGoloCurentWork()
+        currentWork.setMargin(document.getElementById(GoLogoLoGUIId.GOLOGOLO_MARGIN_SLIDER).value)
         this.loadWorkStyle(currentWork)
     }
 

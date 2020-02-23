@@ -34,6 +34,22 @@ export default class GoLogoLoController
         this.model.updateBorderColor()
     }
 
+    porcessBorderRadius = (event) =>{
+        this.model.updateBorderRadius()
+    }
+
+    processBorderThickness = (event) =>{
+        this.model.updateBorderThickness()
+    }
+
+    processPadding = (event) => {
+        this.model.updatePadding()
+    }
+
+    processMargin = (event) => {
+        this.model.updateMargin()
+    }
+
 
     processChangeName = (event) => {
 

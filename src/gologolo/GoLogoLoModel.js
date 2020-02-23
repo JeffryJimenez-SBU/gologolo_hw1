@@ -55,6 +55,22 @@ export default class GoLogoLoModel extends AppsterModel {
         this.view.updateFontSize()
     }
 
+    updateBorderRadius(){
+        this.view.updateBorderRadius()
+    }
+
+    updateBorderThickness(){
+        this.view.updateBorderThickness()
+    }
+
+    updatePadding(){
+        this.view.updatePadding()
+    }
+
+    updateMargin(){
+        this.view.updateMargin()
+    }
+
     updateTextColor(){
         this.view.updateTextColor()
     }
