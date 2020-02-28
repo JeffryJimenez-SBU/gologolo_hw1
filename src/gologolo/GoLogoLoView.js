@@ -16,7 +16,6 @@ export default class GoLogoLoView extends AppsterView {
         // FIRST MAKE THE TOOLBAR
         let toolbar = this.buildElement(AppsterHTML.DIV, GoLogoLoGUIId.GOLOGOLO_TOOLBAR);
         let editTextButton = this.buildElement(AppsterHTML.BUTTON, GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON, [], [], GoLogoLoText.GOLOGOLO_EDIT_TEXT_TEXT);
-        //editTextButton.innerHTML = AppsterSymbols.EDIT;
         let fontSizeSlider = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER, [], rangeAttributes);
         let textColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER, [], colorPickerAttributes);
         let backgroundColorPicker = this.buildElement(AppsterHTML.INPUT, GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER, [], colorPickerAttributes);
@@ -84,15 +83,12 @@ export default class GoLogoLoView extends AppsterView {
         let textDiv = document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT);
         textDiv.style.color = work.getTextColor();
         textDiv.style.backgroundColor = work.getBackgroundColor();
-        //textDiv.style.borderColor = work.getBorderColor();
-        textDiv.style.border = "solid" + work.getBorderColor()  //test
+        textDiv.style.border = "solid" + work.getBorderColor()  
         textDiv.style.borderRadius = work.getBorderRadius() + "px";
-        //textDiv.style.borderThickness = work.getBorderThickness() + "px";
         textDiv.style.borderWidth = work.getBorderThickness() + "px";
         textDiv.style.fontSize = work.getFontSize() + "px"
         textDiv.style.padding = work.getPadding() + "px"
         textDiv.style.margin = work.getMargin() + "px"
-        //console.log("wait")
     }
 
     addListItem(initText) {
@@ -109,10 +105,10 @@ export default class GoLogoLoView extends AppsterView {
         textList.innerHTML += textList.innerHTML + letterToAppend;
     }
 
-    //  setupHandlers(){
-    //    
-    // }
 
+    /**
+     * Sets up eventHandlers
+     */
     setupHandlers() {
         this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_EDIT_TEXT_BUTTON, AppsterHTML.CLICK, AppsterCallback.APPSTER_PROCESS_CANCEL_TEXT_MODAL_NEW_NAME)
         this.controller.outsideRegisterAppsterHandler( AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_ENTER_BUTTON_NEW_NAME, AppsterHTML.CLICK, AppsterCallback.APPSTER_PROCESS_ENTER_TEXT_MODAL_NEW_NAME_CONTINUE )
@@ -126,6 +122,9 @@ export default class GoLogoLoView extends AppsterView {
         this.controller.outsideRegisterAppsterHandler(GoLogoLoGUIId.GOLOGOLO_MARGIN_SLIDER, AppsterHTML.INPUT, GoLogoLoCallback.GOLOGOLO_PROCESS_MARGIN)
     }
 
+    /**
+     * Updates logo text
+     */
     updateText(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setText(document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_NEW_NAME).value) 
@@ -134,54 +133,81 @@ export default class GoLogoLoView extends AppsterView {
         this.hideDialog(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_NEW_NAME)
     }
 
+    /**
+     * Updates logo's font size
+     */
     updateFontSize(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setFontSize(parseInt(document.getElementById( GoLogoLoGUIId.GOLOGOLO_FONT_SIZE_SLIDER).value))
         this.loadWorkStyle(currentWork)
     }
 
+    /**
+     * Updates logo's radius
+     */
     updateBorderRadius(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setBorderRadius(document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_RADIUS_SLIDER).value)
         this.loadWorkStyle(currentWork)
     }
 
+    /**
+     * Updates logo's border Thickness
+     */
     updateBorderThickness(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setBorderThickness(document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_THICKNESS_SLIDER).value)
         this.loadWorkStyle(currentWork)
     }
 
+    /**
+     * Updates logo's padding
+     */
     updatePadding(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setPadding(document.getElementById(GoLogoLoGUIId.GOLOGOLO_PADDING_SLIDER).value)
         this.loadWorkStyle(currentWork)
     }
 
+    /**
+     * Updates logo's margin
+     */
     updateMargin(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setMargin(document.getElementById(GoLogoLoGUIId.GOLOGOLO_MARGIN_SLIDER).value)
         this.loadWorkStyle(currentWork)
     }
 
+    /**
+     * Updates logo text color
+     */
     updateTextColor(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setTextColor(document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT_COLOR_PICKER).value)
         this.loadWorkStyle(currentWork)
     }
 
+    /**
+     * updates logo's background color
+     */
     updateBackgroundColor(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setBackgroundColor(document.getElementById(GoLogoLoGUIId.GOLOGOLO_BACKGROUND_COLOR_PICKER).value)
         this.loadWorkStyle(currentWork)
     }
 
+    /**
+     * Updates logo Border Color
+     */
     updateBorderColor(){
         let currentWork = this.controller.getGoloGoloCurentWork()
         currentWork.setBorderColor(document.getElementById(GoLogoLoGUIId.GOLOGOLO_BORDER_COLOR_PICKER).value)
         this.loadWorkStyle(currentWork)
     }
 
+    /**
+     * GETS TEXT
+     */
     getText(){
         return document.getElementById(GoLogoLoGUIId.GOLOGOLO_TEXT).innerText
     }

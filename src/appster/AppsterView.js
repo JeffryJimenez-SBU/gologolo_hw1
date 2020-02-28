@@ -696,11 +696,7 @@ buildAppsterTextInputModal_EDIT_Name() {
                                         [AppsterGUIClass.APPSTER_MODAL_BUTTON],
                                         [],
                                         AppsterText.APPSTER_TEXT_INPUT_MODAL_CANCEL_BUTTON_TEXT);
-    let footer = this.buildElement(     AppsterHTML.FOOTER, 
-                                        "", 
-                                        [AppsterGUIClass.APPSTER_MODAL_FOOTER],
-                                        [],
-                                        AppsterText.APPSTER_TEXT_INPUT_MODAL_FOOTER_TEXT);
+  
     p.appendChild(strong);
     section.appendChild(p);
     textFrame.appendChild(header);
@@ -708,7 +704,6 @@ buildAppsterTextInputModal_EDIT_Name() {
     section.appendChild(textField);
     section.appendChild(enterButton);
     section.appendChild(cancelButton);
-    textFrame.appendChild(footer);
     textModal.appendChild(textFrame);
     return textModal;
 }

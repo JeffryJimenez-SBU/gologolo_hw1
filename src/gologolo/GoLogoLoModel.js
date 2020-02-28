@@ -47,42 +47,73 @@ export default class GoLogoLoModel extends AppsterModel {
         return appWork;
     }
 
+    /**
+     * updates Text
+     */
     updateText() {
         this.view.updateText()
     }
 
+    /**
+     * updates font zise
+     */
     updateFontSize(){
         this.view.updateFontSize()
     }
 
+    /**
+     * update border radius
+     */
     updateBorderRadius(){
         this.view.updateBorderRadius()
     }
 
+    /**
+     * updates border thickness
+     */
     updateBorderThickness(){
         this.view.updateBorderThickness()
     }
 
+    /**
+     * update padding
+     */
     updatePadding(){
         this.view.updatePadding()
     }
 
+    /**
+     * update margin
+     */
     updateMargin(){
         this.view.updateMargin()
     }
 
+    /**
+     * update text color
+     */
     updateTextColor(){
         this.view.updateTextColor()
     }
 
+    /**
+     * updates backgorund color
+     */
     updateBackgroundColor(){
         this.view.updateBackgroundColor()
     }
 
+    /**
+     * updates border color
+     */
     updateBorderColor(){
         this.view.updateBorderColor()
     }
 
+    /**
+     * Determines if a name for a logo object is valid or not, if valid it proceeds to create a logo
+     * @param {} title name of the logo object
+     */
     goList(title){
         console.log("In goList")
         let hold = true
@@ -124,18 +155,34 @@ export default class GoLogoLoModel extends AppsterModel {
 
     }
 
+    /**
+     * returns current work
+     */
     getWorkToEdit(){
         return this.currentWork
     }
 
+    /**
+     * hides an kind of modal
+     * @param {} id id of the modal
+     */
     hideDialog(id){
         this.view.hideDialog(id)
     }
 
+    /**
+     * shows any kind of modal
+     * @param {} id id of modal
+     */
     showDialog(id){
         this.view.showDialog(id)
     }
 
+    /**
+     * Gets current logo text in the edit logo screen and then opends an 
+     * input text dialog
+     * @param {*} id id of modal
+     */
     showEditTextDialog(id){
         let text = this.view.getText()
         document.getElementById(AppsterGUIId.APPSTER_TEXT_INPUT_MODAL_TEXTFIELD_NEW_NAME).value = text
@@ -143,10 +190,16 @@ export default class GoLogoLoModel extends AppsterModel {
 
     }
 
+    /**
+     * sets event handles specific to GoLoGoLo
+     */
     gologoloLogoEventHandler(){
         this.view.setupHandlers()
     }
 
+    /**
+     * returns curent work
+     */
     getCurrentWork(){
         return super.getCurrentWork()
     }
